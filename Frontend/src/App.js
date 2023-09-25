@@ -15,17 +15,18 @@ function App() {
     // response.json() - automatically translate JSON response body to a real JS object
     // data - earlier data transformation is done
 
-    fetch("")
+    fetch("https://localhost:7284/movie")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        const transformedMovies = data.results.map((movieData) => {
+        console.log(data);
+        const transformedMovies = data.map((movieData) => {
           return {
             id: movieData.episode_id,
             title: movieData.title,
-            openingText: movieData.opening_crawl,
-            releaseData: movieData.release_date,
+            openingText: movieData.opening_Crawl,
+            releaseData: movieData.release_Date,
           };
         });
         setMovies(transformedMovies);
