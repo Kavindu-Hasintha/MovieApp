@@ -5,6 +5,8 @@ import classes from "./AddMovie.module.css";
 function AddMovie(props) {
   const titleRef = useRef("");
   const openingTextRef = useRef("");
+  const directorRef = useRef("");
+  const producerRef = useRef("");
   const releaseDateRef = useRef("");
 
   function submitHandler(event) {
@@ -12,21 +14,21 @@ function AddMovie(props) {
 
     // could add validation here...
 
-    // {
-    //   "title": "Fast Five",
-    //   "opening_Crawl": "string",
-    //   "director": "string",
-    //   "producer": "string",
-    //   "release_Date": "2023-10-01T13:12:05.588Z"
-    // }
-
     const movie = {
       title: titleRef.current.value,
-      openingText: openingTextRef.current.value,
-      releaseDate: releaseDateRef.current.value,
+      opening_Crawl: openingTextRef.current.value,
+      director: directorRef.current.value,
+      producer: producerRef.current.value,
+      release_Date: releaseDateRef.current.value,
     };
 
     props.onAddMovie(movie);
+
+    titleRef.current.value = "";
+    openingTextRef.current.value = "";
+    directorRef.current.value = "";
+    producerRef.current.value = "";
+    releaseDateRef.current.value = "";
   }
 
   return (
@@ -38,6 +40,14 @@ function AddMovie(props) {
       <div className={classes.control}>
         <label htmlFor="opening-text">Opening Text</label>
         <textarea rows="5" id="opening-text" ref={openingTextRef}></textarea>
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="director">Director</label>
+        <input type="text" id="director" ref={directorRef} />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="producer">Producer</label>
+        <input type="text" id="producer" ref={producerRef} />
       </div>
       <div className={classes.control}>
         <label htmlFor="date">Release Date</label>
