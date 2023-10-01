@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rM6/zLG2OAWDA9SbVKsGmcZp8OkA4WLx+3l7HIVBigoDHhjOWZDp9tnA265X0M0PQEeHbx+7en5+LA0XFaSi1A==",
+  "dgSpecHash": "4QgpVZsTWVvI/DT9M2EVi+OU9QinXixBgTtbdVtR4sl1V1bbcKeZSXk+L+w2+tUSTbAdRecgfdDub9jheNFp0Q==",
   "success": true,
   "projectFilePath": "D:\\.NET\\Movie App\\MovieApp\\MovieApp\\MovieApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Kavindu\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Kavindu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Kavindu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\Kavindu\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Kavindu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Kavindu\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Kavindu\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Kavindu\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.11\\microsoft.entityframeworkcore.6.0.11.nupkg.sha512",

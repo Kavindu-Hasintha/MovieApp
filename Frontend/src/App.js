@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import MoviesList from "./components/MoviesList";
+import AddMovie from "./components/AddMovie";
 import "./App.css";
 
 function App() {
@@ -8,10 +9,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  async function fetchMovieHandler() {
+  const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
-
     try {
       const response = await fetch("https://localhost:7284/movie");
       if (!response.ok) {
@@ -22,25 +22,37 @@ function App() {
 
       const transformedMovies = data.map((movieData) => {
         return {
-          id: movieData.episode_id,
+          id: movieData.episode_Id,
           title: movieData.title,
           openingText: movieData.opening_Crawl,
-          releaseData: movieData.release_Date,
+          releaseDate: movieData.release_Date,
         };
       });
       setMovies(transformedMovies);
     } catch (error) {
       setError(error.message);
-    } finally {
-      setIsLoading(false);
     }
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
+
+  // JSON.stringify(movie) - this will convert JS object/array into JSON format
+  async function addMovieHandler(movie) {
+    const response = await fetch("https://localhost:7284/movie", {
+      method: "POST",
+      body: JSON.stringify(movie),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
   }
 
-  let content = <p>Found no movies!</p>;
-
-  if (movies.length === 0) {
-    content = <p>Found no movies!</p>;
-  }
+  let content = <p>Found no movies.</p>;
 
   if (movies.length > 0) {
     content = <MoviesList movies={movies} />;
@@ -51,17 +63,16 @@ function App() {
   }
 
   if (isLoading) {
-    content = (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    );
+    content = <p>Loading...</p>;
   }
 
   return (
     <React.Fragment>
       <section>
-        <button onClick={fetchMovieHandler}>Fetch Movies</button>
+        <AddMovie onAddMovie={addMovieHandler} />
+      </section>
+      <section>
+        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
       <section>{content}</section>
     </React.Fragment>

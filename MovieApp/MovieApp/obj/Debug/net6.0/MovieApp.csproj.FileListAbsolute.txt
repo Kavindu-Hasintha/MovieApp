@@ -65,3 +65,5 @@ D:\.NET\Movie App\MovieApp\MovieApp\obj\Debug\net6.0\refint\MovieApp.dll
 D:\.NET\Movie App\MovieApp\MovieApp\obj\Debug\net6.0\MovieApp.pdb
 D:\.NET\Movie App\MovieApp\MovieApp\obj\Debug\net6.0\MovieApp.genruntimeconfig.cache
 D:\.NET\Movie App\MovieApp\MovieApp\obj\Debug\net6.0\ref\MovieApp.dll
+D:\.NET\Movie App\MovieApp\MovieApp\bin\Debug\net6.0\AutoMapper.dll
+D:\.NET\Movie App\MovieApp\MovieApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
